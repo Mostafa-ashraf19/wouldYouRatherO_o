@@ -37,8 +37,8 @@ let users = {
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
     timestamp: 1467166872634,
+    author: 'sarahedo',
     optionOne: {
       votes: ['sarahedo'],
       text: 'have horrible short term memory',
@@ -50,8 +50,8 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
-    author: 'johndoe',
     timestamp: 1468479767190,
+    author: 'johndoe',
     optionOne: {
       votes: [],
       text: 'become a superhero',
@@ -63,8 +63,8 @@ let questions = {
   },
   "am8ehyc8byjqgar0jgpub9": {
     id: 'am8ehyc8byjqgar0jgpub9',
-    author: 'sarahedo',
     timestamp: 1488579767190,
+    author: 'sarahedo',
     optionOne: {
       votes: [],
       text: 'be telekinetic',
@@ -76,8 +76,8 @@ let questions = {
   },
   "loxhs1bqm25b708cmbf3g": {
     id: 'loxhs1bqm25b708cmbf3g',
-    author: 'tylermcginnis',
     timestamp: 1482579767190,
+    author: 'tylermcginnis',
     optionOne: {
       votes: [],
       text: 'be a front-end developer',
@@ -89,8 +89,8 @@ let questions = {
   },
   "vthrdm985a262al8qx3do": {
     id: 'vthrdm985a262al8qx3do',
-    author: 'tylermcginnis',
     timestamp: 1489579767190,
+    author: 'tylermcginnis',
     optionOne: {
       votes: ['tylermcginnis'],
       text: 'find $50 yourself',
@@ -102,8 +102,8 @@ let questions = {
   },
   "xj352vofupe1dqz9emx13r": {
     id: 'xj352vofupe1dqz9emx13r',
-    author: 'johndoe',
     timestamp: 1493579767190,
+    author: 'johndoe',
     optionOne: {
       votes: ['johndoe'],
       text: 'write JavaScript',
