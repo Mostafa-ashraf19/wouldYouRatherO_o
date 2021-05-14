@@ -7,10 +7,9 @@ class Login extends Component {
     render(){
         const {users} = this.props 
         const usersId = Object.keys(users)
-        console.log('Hi')
 
         // console.log('users id', usersId.length)
-        console.log('user name', users[usersId[0]])
+        // console.log('user name', users[usersId[0]])
 
         return (
             <div>
@@ -28,7 +27,7 @@ class Login extends Component {
                     usersId.length > 0  && 
                     <select>{ usersId.map((UId) => 
                     {
-                        console.log('in map ', UId , ' name ', users[UId].name )
+                        // console.log('in map ', UId , ' name ', users[UId].name )
                         return  (
                         <option key={UId}>
                             {users[UId].name}
