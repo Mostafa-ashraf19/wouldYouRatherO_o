@@ -2,8 +2,9 @@ import '../index.css'
 import React,{ Fragment, Component} from 'react'
 import {connect} from 'react-redux'
 
-import Nav from './Nav'
 import {handleAddQuestion} from '../actions/questions'
+import LoadingBar from 'react-redux-loading-bar'
+
 
 class NewQuestion extends Component {
     
@@ -42,12 +43,16 @@ class NewQuestion extends Component {
     render() {
         
         const {optionOne,optionTwo} = this.state
-        const {userName,avatarURL} = this.props
+        const {loadding} = this.props
+        
         return (
             
             <Fragment>
+                <LoadingBar   style={{ backgroundColor: 'blue', height: '5px' }}/>
 
-                <Nav userName={userName} avatarURL={avatarURL} /> 
+                {
+                    loadding !== true ? null : 
+
                 <div className='new-question'>
                     
                         <h1>Create New Question</h1>
@@ -82,6 +87,7 @@ class NewQuestion extends Component {
                         </form>
                     
                     </div>
+                }
 
             </Fragment>
 
@@ -89,14 +95,9 @@ class NewQuestion extends Component {
     }
 }
 
-function mapSateToProps ({authenticate,users}){
-    const avatarURL = Object.keys(users).length > 0 && authenticate !== ''? users[authenticate].avatarURL : ''
-    const userName = Object.keys(users).length > 0 && authenticate !== '' ? users[authenticate].name : ''
-    
+function mapSateToProps ({loadingBar}){
     return {
-        authenticate,
-        avatarURL,
-        userName
+        loadding : loadingBar.default === 0
     }
 }
 

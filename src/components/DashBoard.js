@@ -1,18 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import User from './User'
-import Nav from './Nav'
 import '../index.css'
-
 
 class Dashboard extends Component {
 
     render() {
-        const {users,userName,avatarURL} = this.props
+        const {users} = this.props
 
         return (
             <div>
-                <Nav userName={userName} avatarURL={avatarURL}/>
+                {/* <Nav userName={userName} avatarURL={avatarURL}/> */}
                 {
                     <div className='mar-top'>  
 
@@ -36,14 +34,14 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps({users,authenticate}){
-    const avatarURL = Object.keys(users).length > 0 && authenticate !== '' ? users[authenticate].avatarURL : ''
-    const userName = Object.keys(users).length > 0 && authenticate !== '' ? users[authenticate].name : ''
+    // const avatarURL = Object.keys(users).length > 0 && authenticate !== '' ? users[authenticate].avatarURL : ''
+    // const userName = Object.keys(users).length > 0 && authenticate !== '' ? users[authenticate].name : ''
  
     return {
         users: Object.keys(users).length <= 0 ? [] : Object.values(users).sort((a,b)=> {
            return (Object.keys(b.answers).length + b.questions.length) - (Object.keys(a.answers).length + a.questions.length)
-        }),avatarURL,
-        userName,
+        })/*,avatarURL,
+        userName,*/
     }
 }
 

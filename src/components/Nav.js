@@ -10,7 +10,6 @@ class  Nav extends Component {
     LogOut = (e) => {
         e.preventDefault()
         const {dispatch} = this.props
-        // console.log('dis is', dispatch)
         dispatch(handleLogOut())
         
     }
@@ -28,10 +27,10 @@ class  Nav extends Component {
                             <NavLink to="/" exact className='aLink' activeClassName='active'>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/new" exact  className='aLink' activeClassName='active'>New Question</NavLink>
+                            <NavLink to="/add" exact  className='aLink' activeClassName='active'>New Question</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/dashboard" exact className='aLink' activeClassName='active'>Leader Dashboard</NavLink>
+                            <NavLink to="/leaderboard" exact className='aLink' activeClassName='active'>Leader Dashboard</NavLink>
                         </li>
                     </ul> 
                 </div>
@@ -46,8 +45,6 @@ class  Nav extends Component {
                         </form>
                     </div>               
                 }
-
-                
 
             </nav>
         )
