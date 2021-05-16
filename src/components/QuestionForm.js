@@ -20,6 +20,8 @@ class QuestionForm extends Component {
         const {dispatch} = this.props
         const {qid} = this.props
         dispatch(handleSaveAnswer({qid,answer}))
+        this.props.location.state.questionType = false
+        console.log('props is' , this.props)
     }
     render( ) {
 
@@ -78,7 +80,7 @@ class QuestionForm extends Component {
                 }
   
 
-                {  questionType === false && 
+                {  (loadding === true &&questionType === false) && 
                     //  Answered Question.  
                     
                     <div className='Question-container'>
