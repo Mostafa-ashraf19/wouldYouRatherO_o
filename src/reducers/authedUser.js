@@ -7,6 +7,7 @@ export default function authenticate(state = '', action ) {
         case LOGIN : 
             return action.authedUser
         case LOGOUT:
+            console.log('state is from log out ', state)
             return action.authedUser            
         default:
             return state
