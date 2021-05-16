@@ -178,7 +178,6 @@ ul {
   width: 40%;
   padding: 20px;
   background-color: #FFF;
-  /* max-width: 590px; */
   margin: 100px auto;
   border: 1px solid #111;
 }
@@ -213,4 +212,155 @@ ul {
   width: 105%;
   background-color: #BADA55;
   text-shadow: none;
+}
+/* *************************** Home ************************************ */
+
+.Home {
+  width: 50%;
+  /* padding: 20px; */
+  background-color: #FFF;
+  margin: 100px auto;
+  border: 1px solid #dad7d7;
+  border-top: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.Home-div {
+  text-align: center;
+  width: 100%;
+  /* border-radius: 10%; */
+
+}
+
+
+
+.Home-btn{
+  border-radius: 10px;
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #dad7d7;
+  background-color: #BADA55;
+  color: #111;
+  /* cursor: pointer; */
+  font-size: 16px; 
+}
+.Home-btn:hover {
+  background-color: #FFF;
+  /* border-radius: 10%; */
+
+}
+
+
+/* **************** Question DB ********************** */
+
+
+
+.Question-DB {
+  width: 90%;
+  border: 1px solid #dad7d7;
+  display: flex;
+  margin: 10px auto;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.Home-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+.Home-left {
+  text-align: center;
+  float: left;
+  width: 49.9%;
+}
+
+.Home-left:first-child {
+  border-right: 0.1px solid #111;
+}
+
+ .Home-avatar {
+  height: 129px;  
+  border-radius: 50%;
+}
+
+.Question-btn{
+  border-radius: 10px;
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #dad7d7;
+  background-color: #BADA55;
+  color: #111;
+  cursor: pointer;
+  font-size: 16px; 
+}
+
+
+/* ******************* Question Form and answer  ************************ */
+
+.Question-container {
+  width: 60%;
+  height: 460px;
+  border: 1px solid #111;
+  margin: 70px auto;
+  padding: 0px 30px 30px 30px;
+}
+
+.h1-style {
+  border-bottom: 1px solid #111;
+  padding: 10px;
+  width: 100%;
+}
+
+.div-container {
+  width: 100%;
+  display: flex;
+}
+
+.div-left {
+  float: left;
+  width: 49.9%;
+}
+
+.Question-avatar {
+  height: 75%;  
+  border-radius: 50%;
+}
+
+.Question-box {
+  position: relative;
+  border: 1px solid #111;
+  margin: 10px;
+  width: 100%;
+}
+/* display over the current div */
+.div-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* ****************** Login ***************** */
+
+.Login {
+  width: 50%;
+  border: 1px solid #111;
+  border-radius: 20px;
+  margin: 90px auto;
+  padding: 20px;
+}
+
+
+.login-input {
+
+  padding: 10px;
+  margin: 15px auto;
+  width: 50%;
+  border: 1px solid #BADA55;
+  border-radius: 5px;
+  display: block;
 }
