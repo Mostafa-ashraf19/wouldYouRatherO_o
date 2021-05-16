@@ -18,7 +18,6 @@ export class App extends Component {
   render() {
     const {loadding,userName,avatarURL,authenticate} = this.props
 
-    console.log('loadding is', loadding )
     return (
 
       
