@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {IconContext} from "react-icons"
 import {GiVote} from 'react-icons/gi'
 
+import LoadingBar from 'react-redux-loading-bar'
+
 import {handleSaveAnswer} from '../actions/questions'
 class QuestionForm extends Component {
     state = {
@@ -21,14 +23,14 @@ class QuestionForm extends Component {
     }
     render( ) {
 
-        const {questionType,question,avatarURL,name,authedUserAnswer} = this.props
+        const {questionType,question,avatarURL,name,authedUserAnswer,loadding} = this.props
 
         return (
             <Fragment>
-
+                <LoadingBar   style={{ backgroundColor: 'blue', height: '5px' }}/>
                 {
                 // true for unAnswered Question.
-                questionType === true && 
+                (loadding === true &&  questionType === true) && 
                 
                 <div className='Question-container'>
                     <h3 className='h1-style'>Asked by <span>{name}</span></h3>  
@@ -74,8 +76,9 @@ class QuestionForm extends Component {
                 </div>
 
                 }
+  
 
-                { questionType === false && 
+                {  questionType === false && 
                     //  Answered Question.  
                     
                     <div className='Question-container'>
@@ -158,7 +161,7 @@ class QuestionForm extends Component {
     } 
 } 
 
-function mapstateToProps({users,questions},ownProps) {
+function mapstateToProps({loadingBar,users,questions},ownProps) {
     const {questionType} = ownProps.location.state // true for unAnswered Question.
     const qid = ownProps.match.params.id
     const question = questions[qid]
@@ -166,7 +169,8 @@ function mapstateToProps({users,questions},ownProps) {
     const authedUserAnswer = answers[qid]
 
     return {
-        qid,questionType,question,avatarURL,name,authedUserAnswer
+        qid,questionType,question,avatarURL,name,authedUserAnswer,
+        loadding : loadingBar.default === 0
     }
 }
 
