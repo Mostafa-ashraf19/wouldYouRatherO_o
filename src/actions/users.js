@@ -17,7 +17,6 @@ export function handleGetUsers() {
             dispatch(getUsers(users)) 
         }).then(() => {
             dispatch(hideLoading())
-
         })
   }
 }

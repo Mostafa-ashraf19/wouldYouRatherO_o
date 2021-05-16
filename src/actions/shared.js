@@ -8,6 +8,7 @@ const CLEAR_STORE = 'CLEAR_STORE'
 
 export function handleStore(user) {
   return (dispatch) => {
+
     dispatch(showLoading())
     dispatch(handleLogin(user))
     dispatch(handleGetQustions())
