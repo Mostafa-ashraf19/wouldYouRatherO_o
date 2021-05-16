@@ -18,19 +18,19 @@ To get started:
 
 1. **Login** 
    
-   <img src="" alt='not finished yet'/>
+   <img src="https://raw.githubusercontent.com/Mostafa-ashraf19/wouldYouRatherO_o/master/screenshots/Login.png" alt='not finished yet'/>
       
 2. **Home**
 
-   <img src="" alt='not finished yet' /> 
+   <img src="https://raw.githubusercontent.com/Mostafa-ashraf19/wouldYouRatherO_o/master/screenshots/Home.png" alt='not finished yet' /> 
 
 4. **Question**
 
-    <img src="" alt='not finished yet' />
+    <img src="https://raw.githubusercontent.com/Mostafa-ashraf19/wouldYouRatherO_o/master/screenshots/Question.png" alt='not finished yet' />
   
 6. **Answer**
     
-    <img src="" alt='not finished yet' />
+    <img src="https://raw.githubusercontent.com/Mostafa-ashraf19/wouldYouRatherO_o/master/screenshots/Answer.png" alt='not finished yet' />
 
 8. **New Question**
 
