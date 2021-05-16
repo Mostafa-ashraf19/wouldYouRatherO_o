@@ -364,3 +364,8 @@ ul {
   border-radius: 5px;
   display: block;
 }
+
+.progress-bar {
+  padding: 15px;
+  width: 60%;
+}

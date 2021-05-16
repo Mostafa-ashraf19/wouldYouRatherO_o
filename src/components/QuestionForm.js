@@ -109,7 +109,7 @@ class QuestionForm extends Component {
                                     <h4 className='center'>Would you rather {question.optionOne.text}?</h4>
 
                                     <div className='center'>
-                                        <progress  value={question.optionOne.votes.length} max={question.optionOne.votes.length+
+                                        <progress className='progress-bar'  value={question.optionOne.votes.length} max={question.optionOne.votes.length+
                                         question.optionTwo.votes.length}
                                         ></progress>
                                     </div>
@@ -135,7 +135,7 @@ class QuestionForm extends Component {
                                     <h4 className='center'>Would you rather {question.optionTwo.text}?</h4>
                                     
                                     <div className='center'>
-                                    <progress  value={question.optionTwo.votes.length} max={question.optionOne.votes.length+
+                                    <progress className='progress-bar'  value={question.optionTwo.votes.length} max={question.optionOne.votes.length+
                                         question.optionTwo.votes.length}
                                         ></progress>
                                     </div>
