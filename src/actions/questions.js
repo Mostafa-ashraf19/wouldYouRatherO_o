@@ -1,6 +1,7 @@
 import {_getQuestions, _saveQuestion, _saveQuestionAnswer} from '../utils/_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
+import {updateUserQuestions,updateUserAnswers} from './users'
 
 export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
@@ -39,8 +40,14 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
     dispatch(showLoading())
     _saveQuestion({optionOneText, optionTwoText, author:authenticate}).then((question) => {
           dispatch(addQuestion(question));
-        }).then(()=>{
+
+          return question
+        }).then((question)=>{
           dispatch(hideLoading())
+
+          return question
+        }).then((question)=>{
+          dispatch(updateUserQuestions({userId:authenticate, questionId:question.id}))
         })
         .catch((e) => {
           alert('An error occurred. Try agin. ', e);
@@ -64,6 +71,7 @@ export function handleGetQustions() {
   }
 }
 
+// HANDLE ANSWERS
 export function handleSaveAnswer({ qid, answer }) {
   return (dispatch, getState) => {
     const {authenticate} = getState()
@@ -73,6 +81,8 @@ export function handleSaveAnswer({ qid, answer }) {
       dispatch(saveAnswer({authedUser:authenticate,qid,answer}))
     }).then(()=>{
       dispatch(hideLoading())
+    }).then(() => {
+      dispatch(updateUserAnswers({qId:qid,answer,uId:authenticate}))
     }).catch((e)=>{
       alert('An error occurred. Try agin. ', e);
     })
