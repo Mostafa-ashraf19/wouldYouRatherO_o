@@ -10,8 +10,8 @@ import NewQuestion from './NewQuestion'
 import Home from './Home'
 import QuestionForm from './QuestionForm'
 
-// git add  `git ls-files --deleted`
-// redux apps has just one store for entire application
+// MY_NOTE: git add  `git ls-files --deleted`
+// MY_NOTE: redux apps has just one store for entire application
 
 export class App extends Component {
   
@@ -40,13 +40,15 @@ export class App extends Component {
                     <Route exact path='/leaderboard' render={() => {
                      return  authenticate==='' ? <Login /> :  <CDashBoard />
                     }} />
+                    {
+                      console.log('authenticate is from app', authenticate )
+                    }
+                       
+                       <Route exact path='/questions/:id' render={ (props) => {
+                       return  authenticate === '' ? <Login /> : <QuestionForm {...props}/>
+                       }} />
 
-                       {
-                         authenticate !== '' && 
-                          <Route exact path='/questions/:id' component={QuestionForm} />
-                       }
-
-             
+                               
                   </div>
                                
             </Fragment>

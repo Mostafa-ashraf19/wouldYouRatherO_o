@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 
 import {handleAddQuestion} from '../actions/questions'
 import LoadingBar from 'react-redux-loading-bar'
+import { Redirect } from 'react-router-dom'
 
 
 class NewQuestion extends Component {
@@ -11,6 +12,7 @@ class NewQuestion extends Component {
     state = {
         optionOne : '',
         optionTwo : '',
+        toHome:false
     }
     
     handleOp1Change = (e) => {
@@ -36,15 +38,20 @@ class NewQuestion extends Component {
         this.setState({
             optionTwo : '',
             optionOne : '',
+            toHome:true
         })
     }
 
     
     render() {
         
-        const {optionOne,optionTwo} = this.state
+        const {optionOne,optionTwo,toHome} = this.state
         const {loadding} = this.props
         
+        if(toHome) {
+            return <Redirect to='/'/>
+        }
+
         return (
             
             <Fragment>

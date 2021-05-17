@@ -2,13 +2,14 @@ import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import {IconContext} from "react-icons"
 import {GiVote} from 'react-icons/gi'
-
+import NotFoundPage from './NotFound'
 import LoadingBar from 'react-redux-loading-bar'
 
 import {handleSaveAnswer} from '../actions/questions'
 class QuestionForm extends Component {
     state = {
-        answer : ''
+        answer : '',
+        toHome:false 
     }
     handleChange = e => {
         const {value}  = e.target
@@ -21,12 +22,22 @@ class QuestionForm extends Component {
         const {qid} = this.props
         dispatch(handleSaveAnswer({qid,answer}))
         this.props.location.state.questionType = false
-        console.log('props is' , this.props)
+
     }
     render( ) {
 
-        const {questionType,question,avatarURL,name,authedUserAnswer,loadding} = this.props
+        const {questionType,question,avatarURL,name,authedUserAnswer,loadding,exists} = this.props
+        
+        if (exists === false) {
+            return (
+                <div>
+                    <NotFoundPage />
+                </div>
+            )
+        }
 
+        const totalQuestionLength = question.optionOne.votes.length + question.optionTwo.votes.length
+        // const op
         return (
             <Fragment>
                 <LoadingBar   style={{ backgroundColor: 'blue', height: '5px' }}/>
@@ -78,7 +89,6 @@ class QuestionForm extends Component {
                 </div>
 
                 }
-  
 
                 {  (loadding === true &&questionType === false) && 
                     //  Answered Question.  
@@ -114,13 +124,12 @@ class QuestionForm extends Component {
                                     <h4 className='center'>Would you rather {question.optionOne.text}?</h4>
 
                                     <div className='center'>
-                                        <progress className='progress-bar'  value={question.optionOne.votes.length} max={question.optionOne.votes.length+
-                                        question.optionTwo.votes.length}
+                                        <progress className='progress-bar'  value={question.optionOne.votes.length} max={totalQuestionLength}
                                         ></progress>
                                     </div>
 
                                     <p className='center'><span>{question.optionOne.votes.length}</span> out of <span>
-                                        {question.optionTwo.votes.length}</span> votes</p>
+                                        {totalQuestionLength}</span> votes</p>
                                 </div>
 
                                 {/* Second Answer box*/}
@@ -140,13 +149,12 @@ class QuestionForm extends Component {
                                     <h4 className='center'>Would you rather {question.optionTwo.text}?</h4>
                                     
                                     <div className='center'>
-                                    <progress className='progress-bar'  value={question.optionTwo.votes.length} max={question.optionOne.votes.length+
-                                        question.optionTwo.votes.length}
-                                        ></progress>
+                                    <progress className='progress-bar'  value={question.optionTwo.votes.length} 
+                                    max={totalQuestionLength} ></progress>
                                     </div>
 
-                                    <p className='center'><span>{question.optionOne.votes.length}</span> out of <span>
-                                        {question.optionTwo.votes.length}</span> votes</p>
+                                    <p className='center'><span>{question.optionTwo.votes.length}</span> out of <span>
+                                        {totalQuestionLength}</span> votes</p>
                                 </div>    
                                 
                             </div>  
@@ -163,14 +171,27 @@ class QuestionForm extends Component {
     } 
 } 
 
-function mapstateToProps({loadingBar,users,questions},ownProps) {
-    const {questionType} = ownProps.location.state // true for unAnswered Question.
+function mapstateToProps({loadingBar,users,questions,authenticate},ownProps) {
+    
+
     const qid = ownProps.match.params.id
+    
+    const exists = qid in questions
+    if(exists === false) {
+        return {
+            exists:false,
+            loadding : loadingBar.default === 0
+        }
+    }
+
+    const {questionType} = ownProps.location.state // true for unAnswered Question.
+
     const question = questions[qid]
     const {avatarURL,name,answers} = users[questions[qid].author]
     const authedUserAnswer = answers[qid]
 
     return {
+        exists:true,
         qid,questionType,question,avatarURL,name,authedUserAnswer,
         loadding : loadingBar.default === 0
     }

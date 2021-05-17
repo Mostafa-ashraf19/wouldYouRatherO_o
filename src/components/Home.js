@@ -86,10 +86,14 @@ function mapStateToProps ({loadingBar,questions,users,authenticate}) {
     // Prepare Questions
     const answers = authenticate !== '' && Object.keys(users).length > 0 ? users[authenticate].answers : {}
     const answersQIds = Object.keys(answers)
-    const answeredQuestions = answersQIds.map((Qid) => questions[Qid])
+    const answeredQuestions = answersQIds.map((Qid) => questions[Qid]).sort((a,b) => 
+       a.timestamp - b.timestamp
+    )
 
     const unansweredQuestions = Object.keys(questions).filter((Qid) => 
-    !(answersQIds.includes(Qid))).map((Qid) => questions[Qid])
+    !(answersQIds.includes(Qid))).map((Qid) => questions[Qid]).sort((a,b) => 
+      a.timestamp - b.timestamp
+    )
     
     return {
         answeredQuestions,
